@@ -53,6 +53,7 @@ public class DlgEquipoDental extends JDialog implements ActionListener {
 
 	// Tipo de operaci�n a procesar: Adicionar, Consultar, Modificar o Eliminar
 	private int tipoOperacion;
+	private String fechaAdquisicion;
 
 	// Constantes para los tipos de operaciones
 	public final static int ADICIONAR = 0;
@@ -314,9 +315,9 @@ public class DlgEquipoDental extends JDialog implements ActionListener {
 	    
 	    equipo equipo = new equipo();
 	    equipo.setDentista(dentista);
-	    equipo.setCosto(costo);
+//	    equipo.setCosto(costo);
 	    equipo.setEstado(estado);
-	    equipo.setFechaAdquisicion(fechaAdquisicion);
+//	    equipo.setFechaAdquisicion(fechaAdquisicion);
 
 	    EntityManager manager = JPAUtil.getEntityManager();
 
@@ -360,7 +361,7 @@ public class DlgEquipoDental extends JDialog implements ActionListener {
 	            return;
 	        }
 
-	        txtCosto.setText(equipo.getCosto());
+//	        txtCosto.setText(equipo.getCosto());
 	        txtFechaAdquisicion.setText(String.valueOf(equipo.getFechaAdquisicion()));
 	        cboDentistas.setSelectedItem(equipo.getDentista());
 	        cboEstados.setSelectedItem(equipo.getEstado());
