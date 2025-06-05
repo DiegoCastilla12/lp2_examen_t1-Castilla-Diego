@@ -22,13 +22,14 @@ import lombok.Setter;
 public class especialidad {
 	@Id
 	@Column(name = "id_especialidad")
+	@EqualsAndHashCode.Include
     private int idEspecialidad;
 	
 	@Column(name = "titulo")
 	private String titulo;
 	
 	@OneToMany(mappedBy = "especialidad")
-    private List<equipo> equipos;
+    private List<dentista> dentista;
 
     @Override
     public String toString() {

@@ -270,7 +270,7 @@ public class DlgEquipoDental extends JDialog implements ActionListener {
 		EntityManager manager = JPAUtil.getEntityManager();
 		
 		try {
-			String jpql = "select a from Actividad a ";
+			String jpql = "select d from dentista d ";
 			List<dentista> lstdentista = manager.createQuery(jpql, dentista.class).getResultList();
 			
 			for (dentista dentista : lstdentista) {
@@ -308,14 +308,14 @@ public class DlgEquipoDental extends JDialog implements ActionListener {
 
 	void adicionar() {
 		dentista dentista = (dentista) cboDentistas.getSelectedItem();
-	    String costo = txtCosto.getText();
+	    double costo = Double.parseDouble(txtCosto.getText());
 	    String estado = (String) cboEstados.getSelectedItem();
 	    LocalDate fechaRegistro = LocalDate.now(); 
 
 	    
 	    equipo equipo = new equipo();
 	    equipo.setDentista(dentista);
-//	    equipo.setCosto(costo);
+	    equipo.setCosto(costo);
 	    equipo.setEstado(estado);
 //	    equipo.setFechaAdquisicion(fechaAdquisicion);
 

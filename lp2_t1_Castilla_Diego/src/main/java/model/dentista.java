@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -40,13 +41,13 @@ public class dentista {
 	
 	@Override
     public String toString() {
-        return cop; 
+        return nombreCompleto; 
     }
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_especialidad")
 	private especialidad especialidad;
 	
-	@OneToMany(mappedBy = "equipo", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "dentista", fetch = FetchType.LAZY)
     private List<equipo> equipos;
 }
